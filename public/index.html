@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Laundry Campus</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563eb'/><circle cx='16' cy='17' r='8' fill='none' stroke='white' stroke-width='3'/><circle cx='9' cy='7' r='1.6' fill='white'/></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="auth hidden">
+  <section class="hero">
+    <div class="brand"><span class="logo"></span><div><b>Smart Laundry</b><small>Campus</small></div></div>
+    <div class="hero-mid">
+      <div class="hero-copy">
+      <h1>Spălatul rufelor,<br>fără stat la coadă.</h1>
+      <p>Vezi în timp real ce mașini sunt libere în cămin, rezervă-ți locul și primești notificare când rufele sunt gata.</p>
+      <div class="hero-stats" id="heroStats"></div>
+      </div>
+      <div class="machine" aria-hidden="true"><div class="m-top"><i></i><i></i><span></span></div><div class="m-door"><div class="m-drum"><b></b><b></b><b></b></div></div><div class="m-led"></div></div>
+    </div>
+    <ul class="feats"><li>⚡ Telemetrie live de la senzori IoT</li><li>📅 Rezervări și coadă inteligentă</li><li>🔔 Notificări la finalizare</li></ul>
+    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+  </section>
+  <section class="auth-form">
+    <div class="auth-box">
+      <div class="brand mob"><span class="logo"></span><div><b>Smart Laundry</b><small>Campus</small></div></div>
+      <div class="tabs"><button class="tab on" data-t="in" type="button">Autentificare</button><button class="tab" data-t="up" type="button">Cont nou</button></div>
+      <h2 id="authTitle">Bine ai revenit 👋</h2>
+      <p class="muted" id="authSub">Conectează-te pentru a-ți gestiona spălările.</p>
+      <form id="authForm" novalidate>
+        <div class="f up hidden"><label>Nume complet<input id="fName" autocomplete="name" placeholder="Andrei Popescu"></label></div>
+        <label>Email<div class="inp"><span>✉️</span><input id="fEmail" type="email" autocomplete="email" placeholder="nume@student.ro"></div></label>
+        <label>Parolă<div class="inp"><span>🔒</span><input id="fPass" type="password" autocomplete="current-password" placeholder="Minim 6 caractere"><button type="button" class="eye" id="eye" aria-label="Arată parola">👁</button></div></label>
+        <div class="f up hidden row2"><label>Camera<input id="fRoom" placeholder="214"></label><label>Cămin<select id="fDorm"></select></label></div>
+        <div class="err" id="authErr" role="alert"></div>
+        <button class="btn primary block lg" id="authBtn" type="submit">Autentificare</button>
+      </form>
+      <div class="demo" id="demoBox">
+        <div class="demo-h"><span>Conturi demo</span></div>
+        <div class="demo-b"><button type="button" class="chip" data-e="andrei.popescu@student.ro" data-p="student123">👩‍🎓 Student</button><button type="button" class="chip" data-e="admin@campus.ro" data-p="admin123">🛠️ Administrator</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- APP -->
+<div id="app" class="app hidden">
+  <aside class="side">
+    <div class="brand"><span class="logo"></span><div><b>Smart Laundry</b><small>Campus</small></div></div>
+    <nav id="nav"></nav>
+    <div class="side-foot">
+      <div class="live"><i></i><span id="liveTxt">Live</span></div>
+      <div class="muted xs" id="speedInfo"></div>
+    </div>
+  </aside>
+  <main>
+    <header class="top">
+      <button class="icon-btn menu" id="menuBtn" aria-label="Meniu">☰</button>
+      <h1 id="pageTitle">Panou</h1>
+      <div class="top-r">
+        <select id="dormSel" class="sel"></select>
+        <button class="icon-btn" id="themeBtn" title="Temă">🌓</button>
+        <button class="icon-btn bell" id="bellBtn" title="Notificări">🔔<span id="bellN" class="badge hidden">0</span></button>
+        <div class="user" id="userBox"></div>
+        <button class="btn ghost sm" id="logout">Ieșire</button>
+      </div>
+    </header>
+    <section id="view"></section>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="sheet" id="sheet"></div></div>
+<div id="toasts"></div>
+<script src="app.js"></script>
+</body>
+</html>
