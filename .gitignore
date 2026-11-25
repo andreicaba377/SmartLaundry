@@ -2,3 +2,4 @@ backend/bin/
 backend/obj/
 laundry.db*
 server.log
+*.pdf

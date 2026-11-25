@@ -24,6 +24,7 @@ Built for the Computer Networks course (year 4). The backend is written in **C# 
 12. [Mapping to the WBS diagram](#12-mapping-to-the-wbs-diagram)
 13. [Troubleshooting](#13-troubleshooting)
 14. [Limitations and future work](#14-limitations-and-future-work)
+15. [Contributing](#15-contributing)
 
 ---
 
@@ -402,3 +403,19 @@ Controllers · Simulation · Seed
 - No password recovery by email and no email-address confirmation.
 - No scheduled reservations by hour; there is only the immediate 5-minute reservation and the queue.
 - Occupancy prediction (peak hours) from the history; for now peak hours are only displayed in a chart.
+
+---
+
+## 15. Contributing
+
+The `main` branch always holds the stable version. All changes go through a branch and a pull request:
+
+1. Update `main`: `git switch main` and `git pull`.
+2. Create a branch for the change, named after what it does: `git switch -c feature/<short-name>` (or `fix/<short-name>` for bug fixes).
+3. Make small commits with clear messages in the imperative, e.g. `Add queue hand-off when a machine is released`.
+4. Before committing, check what goes in with `git status` and `git diff --cached`. Never commit the files listed in `.gitignore` (database, logs, build output).
+5. Push the branch: `git push -u origin feature/<short-name>`.
+6. Open a pull request into `main` on GitHub and ask a teammate for a review.
+7. After the pull request is approved and merged, delete the branch and update your local `main`.
+
+All of these steps can also be done from Visual Studio Code (Source Control view and the GitHub Pull Requests extension) or from Visual Studio (Git Changes window).
